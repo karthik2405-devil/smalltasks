@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-2.18.1.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script> 
+    <title>3D</title>
+  </head>
+    <body>
+    <div class="wrapper">
+        <div id="chart"></div>
+        <script>
+            Plotly.d3.csv('C:\Users\konya\Downloads\restaurants.csv', function(err,rows) {
+                console.log(rows);
+                var data = [];
+                for(let i=0;i<rows.length;i++) {
+                    data.push(rows.map(row => row [i]));
+                }
+                console.log(data);
+                Plotly.newPlot('chart',[{
+                z: data,
+                type: 'surface'
+            }]);
+                
+            });
+        </script>
+    </div>
+    </body>
+</html>
